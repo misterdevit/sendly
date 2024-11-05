@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clicks', function (Blueprint $table) {
+        Schema::create('unsubscriptions', function (Blueprint $table) {
             $table->uuid();
-            $table->foreignUuid('link_id')->constrained();
-            $table->foreignUuid('trace_id')->constrained();
+            $table->foreignUuid('subscriber_id')->constrained();
+            $table->foreignUuid('trace_id')->constrained()->nullable();
+            $table->string('reason')->nullable();
             $table->string('ip')->nullable();
             $table->text('user_agent');
+            $table->text('agreement');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clicks');
+        Schema::dropIfExists('unsubscriptions');
     }
 };

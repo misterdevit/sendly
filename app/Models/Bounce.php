@@ -5,17 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
-class Click extends Model
+class Bounce extends Model
 {
-    use HasUuids;
+    use hasUuids;
 
     public function trace()
     {
         return $this->belongsTo(Trace::class);
-    }
-
-    public function link()
-    {
-        return $this->belongsTo(Link::class);
     }
 }

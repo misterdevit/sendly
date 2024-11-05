@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
-class Link extends Model
+class Unsubscription extends Model
 {
     use HasUuids;
 
-    public function clicks()
+    public function subscriber()
     {
-        return $this->hasMany(Click::class);
+        return $this->belongsTo(Subscriber::class);
     }
 }

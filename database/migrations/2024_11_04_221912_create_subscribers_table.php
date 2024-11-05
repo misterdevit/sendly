@@ -15,9 +15,6 @@ return new class extends Migration
             $table->uuid();
             $table->string('name');
             $table->string('email')->unique();
-            $table->boolean('is_unsubscribed')->default(false);
-            $table->datetime('unsubscribed_at')->nullable();
-            $table->boolean('is_bounced')->default(false);
             $table->timestamps();
         });
     }

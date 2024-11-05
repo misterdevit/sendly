@@ -18,11 +18,6 @@ return new class extends Migration
             $table->string('is_sent')->default(false);
             $table->datetime('send_at')->nullable();
             $table->datetime('sent_at')->nullable();
-            $table->string('is_opened')->default(false);
-            $table->datetime('opened_at')->nullable();
-            $table->string('is_clicked')->default(false);
-            $table->datetime('clicked_at')->nullable();
-            $table->string('is_unsubscribed')->default(false);
             $table->timestamps();
         });
     }

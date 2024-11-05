@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campaigns', function (Blueprint $table) {
+        Schema::create('bounces', function (Blueprint $table) {
             $table->uuid();
-            $table->uuid('template_id');
-            $table->string('subject');
-            $table->text('content');
-            $table->boolean('is_draft')->default(false);
+            $table->foreignUuid('trace_id')->constrained();
+            $table->text('message');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('campaigns');
+        Schema::dropIfExists('bounces');
     }
 };
